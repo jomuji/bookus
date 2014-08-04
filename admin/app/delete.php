@@ -24,6 +24,7 @@ if($stmt = $mysqli->prepare($sql)){
     }else{
         die("Unable to delete.");
     }
+    header('Location: index.php');
  
 }
 ?>
