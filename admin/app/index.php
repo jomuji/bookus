@@ -177,13 +177,14 @@
                                 echo "<td>{$username}</td>";
                                 echo "<td>{$droit}</td>";
                                 echo "<td>";
-                                    echo "<a href='edit-user.php?id={$id}' ng-model='mustShow' class='btn btn-primary btn-lg disabled' role='button' >Edit</a>";
+                                    echo "<a href='edit-user.php?id={$id}' ng-click='mustShow' class='btn btn-primary' role='button' >Edit</a>";
                                     echo " / ";
 
                                     // delete_user is a javascript function, see at the bottom par of the page
                                     echo "<a href='#' onclick='delete_user( {$id} );'>Delete</a>";
                                 echo "</td>";
                             echo "</tr>";
+                            echo "<tr ng-show='mustShow'><td>tests</td></tr>";
                         }
 
                         //end table
