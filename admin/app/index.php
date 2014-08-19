@@ -154,7 +154,7 @@
                     if( $num_results ){
 
                         // html table
-                        echo "<table class='table table-striped'>";
+                        echo "<table class='table table-striped' ng-controller='TestCtrl'>";
 
                             // table heading
                             echo "<tr>";
@@ -172,19 +172,19 @@
                             extract($row);
 
                             //creating new table row per record
-                            echo "<tr>";
+                            echo "<tr ng-show={{ mustShow }}>";
                                 echo "<td>{$id_config}</td>";
                                 echo "<td>{$username}</td>";
                                 echo "<td>{$droit}</td>";
                                 echo "<td>";
-                                    echo "<a href='edit-user.php?id={$id}' ng-click='mustShow' class='btn btn-primary' role='button' >Edit</a>";
+                                    echo "<a href='edit-user.php?id={$id}' ng-click={{ mustShow = !mustShow }} class='btn btn-primary' role='button' >Edit</a>";
                                     echo " / ";
 
                                     // delete_user is a javascript function, see at the bottom par of the page
                                     echo "<a href='#' onclick='delete_user( {$id} );'>Delete</a>";
                                 echo "</td>";
                             echo "</tr>";
-                            echo "<tr ng-show='mustShow'><td>tests</td></tr>";
+                            echo "<tr ng-show={{ false }} ><td>tests</td><td>tests</td><td>tests</td><td>tests</td></tr>";
                         }
 
                         //end table
@@ -213,6 +213,13 @@
                             window.location = 'delete.php?id=' + id;
                         }
                     }
+                    
+                    function TestCtrl($scope, $timeout) {
+                        $scope.mustShow = true;
+                        $timeout(function () {
+                            $scope.mustShow = false;
+                        }, 1000);
+                    }
                     </script>
 
 
@@ -228,6 +235,7 @@
         <!-- compiled and minified Bootstrap JavaScript -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <scrip src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></scrip>
+        
     </body>
 </html>
 
