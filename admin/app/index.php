@@ -172,7 +172,7 @@
                             extract($row);
 
                             //creating new table row per record
-                            echo "<tr ng-show={{ mustShow }}>";
+                            echo "<tr >";
                                 echo "<td>{$id_config}</td>";
                                 echo "<td>{$username}</td>";
                                 echo "<td>{$droit}</td>";
@@ -184,7 +184,7 @@
                                     echo "<a href='#' onclick='delete_user( {$id} );'>Delete</a>";
                                 echo "</td>";
                             echo "</tr>";
-                            echo "<tr ng-show={{ false }} ><td>tests</td><td>tests</td><td>tests</td><td>tests</td></tr>";
+                           
                         }
 
                         //end table
